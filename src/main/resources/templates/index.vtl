@@ -1,0 +1,31 @@
+h1>Resume</h1>
+
+#if ($jobs)
+  <ul>
+    #foreach ($job in $jobs)
+      <li>
+        <p>$job.getCompanyName()</p>
+        <p>$job.getStartDate() - $job.getEndDate()</p>
+        <p>$job.getJobDuration()</p>
+        <p>$job.getDescription()</p>
+      </li>
+    #end
+  </ul>
+#else
+  <p>No jobs!</p>
+#end
+
+<p>Add a new Job:</p>
+
+<form action="/jobs" method="post">
+  <label for="companyName">Where you worked</label>
+  <input id="companyName" name="companyName" type="text">
+  <label for="startDate">Job start date</label>
+  <input id="startDate" name="startDate" type="date">
+  <label for="endDate">Job end date</label>
+  <input id="endDate" name="endDate" type="date">
+  <label for="description">Job Description</label>
+  <input id="description" name="description" type="text">
+
+  <button type="submit" class="btn btn-default">Add job</button>
+</form>
